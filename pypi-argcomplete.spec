@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x8AFAFCD242818A52 (kislyuk@gmail.com)
 #
 Name     : pypi-argcomplete
-Version  : 1.12.3
-Release  : 82
-URL      : https://files.pythonhosted.org/packages/6a/b4/3b1d48b61be122c95f4a770b2f42fc2552857616feba4d51f34611bd1352/argcomplete-1.12.3.tar.gz
-Source0  : https://files.pythonhosted.org/packages/6a/b4/3b1d48b61be122c95f4a770b2f42fc2552857616feba4d51f34611bd1352/argcomplete-1.12.3.tar.gz
-Source1  : https://files.pythonhosted.org/packages/6a/b4/3b1d48b61be122c95f4a770b2f42fc2552857616feba4d51f34611bd1352/argcomplete-1.12.3.tar.gz.asc
+Version  : 2.0.0
+Release  : 83
+URL      : https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz
+Source1  : https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz.asc
 Summary  : Bash tab completion for argparse
 Group    : Development/Tools
 License  : Apache-2.0
@@ -19,14 +19,12 @@ Requires: pypi-argcomplete-python = %{version}-%{release}
 Requires: pypi-argcomplete-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 BuildRequires : pexpect
-BuildRequires : pytest
-Provides: argcomplete
+BuildRequires : pypi-pytest
 
 %description
+argcomplete - Bash tab completion for argparse
 ==============================================
-        *Tab complete all the things!*
-        
-        Argcomplete provides easy, extensible command line tab completion of arguments for your Python script.
+*Tab complete all the things!*
 
 %package bin
 Summary: bin components for the pypi-argcomplete package.
@@ -65,15 +63,15 @@ python3 components for the pypi-argcomplete package.
 
 
 %prep
-%setup -q -n argcomplete-1.12.3
-cd %{_builddir}/argcomplete-1.12.3
+%setup -q -n argcomplete-2.0.0
+cd %{_builddir}/argcomplete-2.0.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641409013
+export SOURCE_DATE_EPOCH=1642003073
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -94,7 +92,7 @@ py.test --verbose test/test.py || :
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-argcomplete
-cp %{_builddir}/argcomplete-1.12.3/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-argcomplete/598f87f072f66e2269dd6919292b2934dbb20492
+cp %{_builddir}/argcomplete-2.0.0/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-argcomplete/598f87f072f66e2269dd6919292b2934dbb20492
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :

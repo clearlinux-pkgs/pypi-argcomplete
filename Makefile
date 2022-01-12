@@ -1,5 +1,5 @@
 PKG_NAME := pypi-argcomplete
-URL = https://files.pythonhosted.org/packages/6a/b4/3b1d48b61be122c95f4a770b2f42fc2552857616feba4d51f34611bd1352/argcomplete-1.12.3.tar.gz
+URL = https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

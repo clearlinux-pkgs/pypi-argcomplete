@@ -6,7 +6,7 @@
 #
 Name     : pypi-argcomplete
 Version  : 2.0.0
-Release  : 84
+Release  : 85
 URL      : https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz
 Source1  : https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz.asc
@@ -18,7 +18,7 @@ Requires: pypi-argcomplete-license = %{version}-%{release}
 Requires: pypi-argcomplete-python = %{version}-%{release}
 Requires: pypi-argcomplete-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pexpect
+BuildRequires : pypi-pexpect
 BuildRequires : pypi-pytest
 
 %description
@@ -71,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1649710910
+export SOURCE_DATE_EPOCH=1650510899
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

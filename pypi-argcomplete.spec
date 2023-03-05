@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x8AFAFCD242818A52 (kislyuk@gmail.com)
 #
 Name     : pypi-argcomplete
-Version  : 2.0.0
-Release  : 98
-URL      : https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz
-Source1  : https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz.asc
+Version  : 2.0.5
+Release  : 99
+URL      : https://files.pythonhosted.org/packages/76/25/a841206f677d3b3f6b85cbc99495823683c96f28e726419438d99e99351e/argcomplete-2.0.5.tar.gz
+Source0  : https://files.pythonhosted.org/packages/76/25/a841206f677d3b3f6b85cbc99495823683c96f28e726419438d99e99351e/argcomplete-2.0.5.tar.gz
+Source1  : https://files.pythonhosted.org/packages/76/25/a841206f677d3b3f6b85cbc99495823683c96f28e726419438d99e99351e/argcomplete-2.0.5.tar.gz.asc
 Summary  : Bash tab completion for argparse
 Group    : Development/Tools
 License  : Apache-2.0
@@ -66,10 +66,10 @@ python3 components for the pypi-argcomplete package.
 
 
 %prep
-%setup -q -n argcomplete-2.0.0
-cd %{_builddir}/argcomplete-2.0.0
+%setup -q -n argcomplete-2.0.5
+cd %{_builddir}/argcomplete-2.0.5
 pushd ..
-cp -a argcomplete-2.0.0 buildavx2
+cp -a argcomplete-2.0.5 buildavx2
 popd
 
 %build
@@ -77,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1672255108
+export SOURCE_DATE_EPOCH=1677975311
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -87,17 +87,17 @@ export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -
 export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
-python3 setup.py build
-
+python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
-python3 setup.py build
+python3 -m build --wheel --skip-dependency-check --no-isolation
 
 popd
+
 %check
 export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
@@ -109,8 +109,8 @@ py.test --verbose test/test.py || :
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-argcomplete
-cp %{_builddir}/argcomplete-%{version}/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-argcomplete/598f87f072f66e2269dd6919292b2934dbb20492
-python3 -tt setup.py build  install --root=%{buildroot}
+cp %{_builddir}/argcomplete-%{version}/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-argcomplete/598f87f072f66e2269dd6919292b2934dbb20492 || :
+pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -120,7 +120,7 @@ export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
-python3 -tt setup.py build install --root=%{buildroot}-v3
+pip install --root=%{buildroot}-v3 --no-deps --ignore-installed dist/*.whl
 popd
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 

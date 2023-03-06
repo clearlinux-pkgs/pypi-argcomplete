@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x8AFAFCD242818A52 (kislyuk@gmail.com)
 #
 Name     : pypi-argcomplete
-Version  : 2.0.5
-Release  : 99
-URL      : https://files.pythonhosted.org/packages/76/25/a841206f677d3b3f6b85cbc99495823683c96f28e726419438d99e99351e/argcomplete-2.0.5.tar.gz
-Source0  : https://files.pythonhosted.org/packages/76/25/a841206f677d3b3f6b85cbc99495823683c96f28e726419438d99e99351e/argcomplete-2.0.5.tar.gz
-Source1  : https://files.pythonhosted.org/packages/76/25/a841206f677d3b3f6b85cbc99495823683c96f28e726419438d99e99351e/argcomplete-2.0.5.tar.gz.asc
+Version  : 2.1.1
+Release  : 100
+URL      : https://files.pythonhosted.org/packages/ac/43/b4ac2e533f86b96414a471589948da660925b95b50b1296bd25cd50c0e3e/argcomplete-2.1.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/ac/43/b4ac2e533f86b96414a471589948da660925b95b50b1296bd25cd50c0e3e/argcomplete-2.1.1.tar.gz
+Source1  : https://files.pythonhosted.org/packages/ac/43/b4ac2e533f86b96414a471589948da660925b95b50b1296bd25cd50c0e3e/argcomplete-2.1.1.tar.gz.asc
 Summary  : Bash tab completion for argparse
 Group    : Development/Tools
 License  : Apache-2.0
@@ -25,8 +25,8 @@ BuildRequires : pypi-pytest
 %define debug_package %{nil}
 
 %description
-argcomplete - Bash tab completion for argparse
-==============================================
+argcomplete - Bash/zsh tab completion for argparse
+==================================================
 *Tab complete all the things!*
 
 %package bin
@@ -66,10 +66,10 @@ python3 components for the pypi-argcomplete package.
 
 
 %prep
-%setup -q -n argcomplete-2.0.5
-cd %{_builddir}/argcomplete-2.0.5
+%setup -q -n argcomplete-2.1.1
+cd %{_builddir}/argcomplete-2.1.1
 pushd ..
-cp -a argcomplete-2.0.5 buildavx2
+cp -a argcomplete-2.1.1 buildavx2
 popd
 
 %build
@@ -77,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1677975311
+export SOURCE_DATE_EPOCH=1678140269
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -131,7 +131,6 @@ popd
 %defattr(-,root,root,-)
 /usr/bin/activate-global-python-argcomplete
 /usr/bin/python-argcomplete-check-easy-install-script
-/usr/bin/python-argcomplete-tcsh
 /usr/bin/register-python-argcomplete
 
 %files license

@@ -6,11 +6,11 @@
 # Source0 file verified with key 0x8AFAFCD242818A52 (kislyuk@gmail.com)
 #
 Name     : pypi-argcomplete
-Version  : 3.0.3
-Release  : 102
-URL      : https://files.pythonhosted.org/packages/63/77/fda3098795c10859f64b74d0b9535e90c13f3e3aef34410b1a0d8d276bb4/argcomplete-3.0.3.tar.gz
-Source0  : https://files.pythonhosted.org/packages/63/77/fda3098795c10859f64b74d0b9535e90c13f3e3aef34410b1a0d8d276bb4/argcomplete-3.0.3.tar.gz
-Source1  : https://files.pythonhosted.org/packages/63/77/fda3098795c10859f64b74d0b9535e90c13f3e3aef34410b1a0d8d276bb4/argcomplete-3.0.3.tar.gz.asc
+Version  : 3.0.4
+Release  : 103
+URL      : https://files.pythonhosted.org/packages/12/68/634a053e7e80d33eb031e86fc0f7608a8334e7a8279826a51aac9dcc4a93/argcomplete-3.0.4.tar.gz
+Source0  : https://files.pythonhosted.org/packages/12/68/634a053e7e80d33eb031e86fc0f7608a8334e7a8279826a51aac9dcc4a93/argcomplete-3.0.4.tar.gz
+Source1  : https://files.pythonhosted.org/packages/12/68/634a053e7e80d33eb031e86fc0f7608a8334e7a8279826a51aac9dcc4a93/argcomplete-3.0.4.tar.gz.asc
 Summary  : Bash tab completion for argparse
 Group    : Development/Tools
 License  : Apache-2.0
@@ -67,10 +67,10 @@ python3 components for the pypi-argcomplete package.
 
 
 %prep
-%setup -q -n argcomplete-3.0.3
-cd %{_builddir}/argcomplete-3.0.3
+%setup -q -n argcomplete-3.0.4
+cd %{_builddir}/argcomplete-3.0.4
 pushd ..
-cp -a argcomplete-3.0.3 buildavx2
+cp -a argcomplete-3.0.4 buildavx2
 popd
 
 %build
@@ -78,7 +78,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679411333
+export SOURCE_DATE_EPOCH=1679498983
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-argcomplete
-Version  : 3.0.5
-Release  : 104
-URL      : https://files.pythonhosted.org/packages/9d/50/e5b3e9824a387920c4b92870359c9f7dbf21a6cd6d3dff5bf4fd3b50237a/argcomplete-3.0.5.tar.gz
-Source0  : https://files.pythonhosted.org/packages/9d/50/e5b3e9824a387920c4b92870359c9f7dbf21a6cd6d3dff5bf4fd3b50237a/argcomplete-3.0.5.tar.gz
+Version  : 3.0.6
+Release  : 105
+URL      : https://files.pythonhosted.org/packages/6e/5b/9eae020dad132502efdb51408ba8a5b21afedcb738a98a307c6bfc21aaa8/argcomplete-3.0.6.tar.gz
+Source0  : https://files.pythonhosted.org/packages/6e/5b/9eae020dad132502efdb51408ba8a5b21afedcb738a98a307c6bfc21aaa8/argcomplete-3.0.6.tar.gz
 Summary  : Bash tab completion for argparse
 Group    : Development/Tools
 License  : Apache-2.0
@@ -64,10 +64,10 @@ python3 components for the pypi-argcomplete package.
 
 
 %prep
-%setup -q -n argcomplete-3.0.5
-cd %{_builddir}/argcomplete-3.0.5
+%setup -q -n argcomplete-3.0.6
+cd %{_builddir}/argcomplete-3.0.6
 pushd ..
-cp -a argcomplete-3.0.5 buildavx2
+cp -a argcomplete-3.0.6 buildavx2
 popd
 
 %build
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679937318
+export SOURCE_DATE_EPOCH=1682271259
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

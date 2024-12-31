@@ -6,10 +6,10 @@
 # autospec commit: 5424026
 #
 Name     : pypi-argcomplete
-Version  : 3.5.2
-Release  : 124
-URL      : https://files.pythonhosted.org/packages/7f/03/581b1c29d88fffaa08abbced2e628c34dd92d32f1adaed7e42fc416938b0/argcomplete-3.5.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/7f/03/581b1c29d88fffaa08abbced2e628c34dd92d32f1adaed7e42fc416938b0/argcomplete-3.5.2.tar.gz
+Version  : 3.5.3
+Release  : 125
+URL      : https://files.pythonhosted.org/packages/0c/be/6c23d80cb966fb8f83fb1ebfb988351ae6b0554d0c3a613ee4531c026597/argcomplete-3.5.3.tar.gz
+Source0  : https://files.pythonhosted.org/packages/0c/be/6c23d80cb966fb8f83fb1ebfb988351ae6b0554d0c3a613ee4531c026597/argcomplete-3.5.3.tar.gz
 Summary  : Bash tab completion for argparse
 Group    : Development/Tools
 License  : Apache-2.0
@@ -18,8 +18,8 @@ Requires: pypi-argcomplete-license = %{version}-%{release}
 Requires: pypi-argcomplete-python = %{version}-%{release}
 Requires: pypi-argcomplete-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(setuptools)
-BuildRequires : pypi(setuptools_scm)
+BuildRequires : pypi(hatch_vcs)
+BuildRequires : pypi(hatchling)
 BuildRequires : pypi-pexpect
 BuildRequires : pypi-pytest
 # Suppress stripping binaries
@@ -68,10 +68,10 @@ python3 components for the pypi-argcomplete package.
 
 
 %prep
-%setup -q -n argcomplete-3.5.2
-cd %{_builddir}/argcomplete-3.5.2
+%setup -q -n argcomplete-3.5.3
+cd %{_builddir}/argcomplete-3.5.3
 pushd ..
-cp -a argcomplete-3.5.2 buildavx2
+cp -a argcomplete-3.5.3 buildavx2
 popd
 
 %build
@@ -79,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1733530366
+export SOURCE_DATE_EPOCH=1735684068
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

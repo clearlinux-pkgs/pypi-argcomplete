@@ -7,7 +7,7 @@
 #
 Name     : pypi-argcomplete
 Version  : 3.5.3
-Release  : 125
+Release  : 126
 URL      : https://files.pythonhosted.org/packages/0c/be/6c23d80cb966fb8f83fb1ebfb988351ae6b0554d0c3a613ee4531c026597/argcomplete-3.5.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/0c/be/6c23d80cb966fb8f83fb1ebfb988351ae6b0554d0c3a613ee4531c026597/argcomplete-3.5.3.tar.gz
 Summary  : Bash tab completion for argparse
